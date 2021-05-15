@@ -1,0 +1,312 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+  background-color: #333;
+}
+
+.pokeapi,
+.chethan {
+  text-decoration: none;
+  color: #fed136;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: #111;
+}
+
+.page_link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #1e3b3b;
+  width: 240px;
+  height: 360px;
+  color: white;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 3px 1px 10px #000;
+}
+.card:hover {
+  border: 5px solid #fed136;
+  box-shadow: 3px 2px 10px #a5871b;
+}
+
+.card_image {
+  background-color: darkslategrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+}
+
+.card_description {
+  padding: 0 25px;
+}
+
+.pokemon_image {
+  width: 120px;
+  height: auto;
+  max-height: 150px;
+}
+
+.pokedex_id {
+  color: #fed136;
+  font-size: 12px;
+}
+
+.pokemon_title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.pokemon_types {
+  display: flex;
+}
+
+.pokemon_types h5 {
+  padding: 5px;
+  margin-right: 5px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.pokepress_pagination,
+.single_post_pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto;
+}
+
+.pokepress_pagination a.page-numbers {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+}
+
+.pokepress_pagination .current {
+  font-weight: bold;
+  color: #fed136;
+}
+
+.normal {
+  background: #a8a878;
+}
+
+.fire {
+  background: #f08030;
+}
+
+.water {
+  background: #6890f0;
+}
+
+.grass {
+  background: #78c850;
+}
+
+.electric {
+  background: #f8d030;
+}
+
+.ice {
+  background: #98d8d8;
+}
+
+.fighting {
+  background: #c03028;
+}
+
+.poison {
+  background: #a040a0;
+}
+
+.ground {
+  background: #d1b469;
+}
+
+.flying {
+  background: #a890f0;
+}
+
+.psychic {
+  background: #f85888;
+}
+
+.bug {
+  background: #a8b820;
+}
+
+.rock {
+  background: #b8a038;
+}
+
+.ghost {
+  background: #705898;
+}
+
+.dark {
+  background: #705848;
+}
+
+.dragon {
+  background: #7038f8;
+}
+
+.steel {
+  background: #b8b8d0;
+}
+
+.fairy {
+  background: #f0b6bc;
+}
+
+.page_card {
+  margin: 2.5% auto;
+  padding: 5%;
+  width: 90%;
+  max-width: 960px;
+  background-color: #1e3b3b;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 3px 1px 10px #000;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page_card_left {
+  flex: 1;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.page_card_left .pokemon_image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.page_card_left .pokemon_types {
+  display: flex;
+  justify-content: center;
+}
+
+.page_card_right {
+  flex: 2;
+  padding: 0 25px;
+  letter-spacing: 1px;
+  margin-left: 10%;
+}
+
+.page_card_left .pokedex_id {
+  font-size: 20px;
+}
+
+.page_card_left .pokemon_title {
+  font-size: 32px;
+  margin-top: 50px;
+}
+
+.page_card_left .pokemon_types h5 {
+  font-size: 18px;
+}
+
+.data {
+  color: #fed136;
+  margin-left: 10px;
+}
+
+.stat {
+  margin: 50px auto;
+}
+
+.stat h4 {
+  margin: 2% auto;
+}
+
+.progress_bar {
+  overflow: hidden;
+  background-color: #1a3030;
+  border-radius: 25px;
+}
+
+.progress_bar .progress {
+  height: 12px;
+}
+
+.stats_hp {
+  background-color: deepskyblue;
+}
+.stats_speed {
+  background-color: orange;
+}
+.stats_attack {
+  background-color: firebrick;
+}
+.stats_defence {
+  background-color: forestgreen;
+}
+.stats_spl_attack {
+  background-color: darkorchid;
+}
+.stats_spl_defence {
+  background-color: darkcyan;
+}
+
+.single_post_pagination {
+  margin: 0 auto;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  max-width: 960px;
+}
+
+.single_post_pagination .prev_link,
+.single_post_pagination .home_link,
+.single_post_pagination .next_link {
+  color: darkslategrey;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fed136;
+}
+
+.single_post_pagination .prev_link > *,
+.single_post_pagination .next_link > *,
+.single_post_pagination .home_link > * {
+  color: darkslategrey;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}

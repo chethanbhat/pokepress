@@ -1,10 +1,16 @@
 <?php
 
+require get_theme_file_path('/inc/search-route.php');
+
 add_action('wp_enqueue_scripts', 'pokepress_assets');
 
 function pokepress_assets()
 {
     wp_enqueue_style('pokepress_main_styles', get_theme_file_uri() . '/assets/main.css' , NULL, microtime());
+    wp_enqueue_script( 'pokepress_main_script', get_theme_file_uri() . '/assets/main.js', NULL, microtime(), true );
+    wp_localize_script('pokepress_main_script', 'pokeData', array(
+        'root_url' => get_site_url(),
+    ));
 }
 
 // Pagination

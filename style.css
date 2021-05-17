@@ -1,9 +1,14 @@
 /*
-
 Theme Name: PokePress
-Descriptioon: Pokemon WordPress Theme
+Theme URI: https://github.com/chethanbhat/pokepress
 Author: Chethan Bhat
+Author URI: https://chethanbhat.com/
+Description: An effort to create a pokedex on WordPress using custom post type, custom taxonomy, advanced custom fields and api request to PokeAPI
+Tags: pokemon, pokedex, custom post type, custom taxonomy, advance custom fields, ajax search
 Version: 1.0
-License: MIT
-
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: pokepress
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
 */

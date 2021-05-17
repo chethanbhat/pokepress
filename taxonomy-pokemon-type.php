@@ -1,28 +1,17 @@
 <?php get_header(); ?>
 
-<?php
-
-// The Query
-$the_query = new WP_Query( array(
-    'post_type' => 'pokemon',
-    'posts_per_page' => 50,
-    'paged' => get_query_var( 'paged' ),
-    'orderby' => 'meta_value_num',
-    'meta_key' => 'pokedex_id',
-    'order'	=> 'ASC'
-    ));
-?>
+<h1 class="page_title"><?php echo get_the_archive_title() ?></h1>
 
 <div class="pokepress_pagination">
-    <?php pagination_bar($the_query); ?>
+    <?php pagination_bar($wp_query); ?>
 </div>
 
 <div class="card-grid">
     <?php
     // The Loop
-    if ( $the_query->have_posts() ) :
-        while ($the_query->have_posts()) :
-            $the_query->the_post();
+    if ( have_posts() ) :
+        while (have_posts()) :
+            the_post();
         ?>
         <a class="page_link" href="<?php the_permalink(); ?>">
         <div class="card">
@@ -50,14 +39,12 @@ $the_query = new WP_Query( array(
 </div>
 
 <div class="pokepress_pagination">
-    <?php pagination_bar($the_query); ?>
+    <?php pagination_bar($wp_query); ?>
 </div>
 
+
+
 <?php
-
-/* Restore original Post Data */
-wp_reset_postdata();
-
 
 // Load Footer
 get_footer();

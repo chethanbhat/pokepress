@@ -5,10 +5,12 @@ const rootUrl = pokeData.root_url;
 let previousValue;
 let typingTimer;
 let isSpinnerVisible = false;
+let searchTimer;
 
 searchInput.addEventListener("keyup", () => {
   if (searchInput.value !== previousValue) {
     clearTimeout(typingTimer);
+    clearTimeout(searchTimer);
     if (searchInput.value) {
       typingTimer = setTimeout(showResults, 500);
       if (!isSpinnerVisible) {
@@ -51,7 +53,7 @@ const showResults = async () => {
       )
       .join("");
     searchResults.innerHTML = items;
-    setTimeout(() => {
+    searchTimer = setTimeout(() => {
       searchResults.innerHTML = "";
       searchResults.classList.add("hide");
       searchResults.classList.remove("show");
@@ -59,11 +61,11 @@ const showResults = async () => {
     }, 10000);
   } else {
     searchResults.innerHTML = `<div class="sorry_card"><h4>Sorry, no results found !</h4></div>`;
-    setTimeout(() => {
+    searchTimer = setTimeout(() => {
       searchResults.innerHTML = "";
       searchResults.classList.add("hide");
       searchResults.classList.remove("show");
-    }, 3000);
+    }, 5000);
   }
 };
 

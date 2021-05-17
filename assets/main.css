@@ -27,6 +27,11 @@ footer {
   background-color: #111;
 }
 
+.page_title {
+  text-align: center;
+  text-transform: capitalize;
+}
+
 .page_link {
   text-decoration: none;
   color: #fff;

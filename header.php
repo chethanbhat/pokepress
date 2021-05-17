@@ -11,7 +11,7 @@
     <a class="page_link" href="<?php echo esc_url(site_url()); ?>">
         <h1 class="main_title">PokePress !</h1>
     </a>
-    <p>An effort to create a pokedex on WordPress using custom post type, advanced custom fields and api request to <a class="pokeapi" href="https://pokeapi.co/">PokeAPI</a></p>
+    <p>An effort to create a pokedex on WordPress using custom post type, custom taxonomy, advanced custom fields and api request to <a class="pokeapi" href="https://pokeapi.co/">PokeAPI</a></p>
         <div class="search">
             <div class="search_form">
             <input type="search" name="" id="search_input" placeholder="Search your favorite pokemon..." >

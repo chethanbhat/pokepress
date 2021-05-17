@@ -35,7 +35,7 @@ function pagination_bar($my_query) {
 add_action('init', 'register_pokemon_cpt');
 
 function register_pokemon_cpt() {
-    // Event Post Type
+    // Pokemon Post Type
     register_post_type('pokemon', array(
         'rewrite' => array('slug' => 'pokemon'),
         'supports' => array('title', 'editor', 'excerpt'),
@@ -51,6 +51,45 @@ function register_pokemon_cpt() {
         'menu_icon' => 'dashicons-buddicons-activity',
         'show_in_rest' => true
     ));
+    // Pokemon Custom Taxonomy
+	$labels = array(
+		'name'                       => _x( 'Pokemon Types', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'Pokemon Type', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'Pokemon Types', 'text_domain' ),
+		'all_items'                  => __( 'All Pokemon Types', 'text_domain' ),
+		'new_item_name'              => __( 'New Pokemon Type', 'text_domain' ),
+		'add_new_item'               => __( 'Add New Pokemon Type', 'text_domain' ),
+		'edit_item'                  => __( 'Edit Pokemon Type', 'text_domain' ),
+		'update_item'                => __( 'Update Pokemon Type', 'text_domain' ),
+		'view_item'                  => __( 'View Pokemon Type', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate Pokemon Types with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove Pokemon Types', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular Pokemon Types', 'text_domain' ),
+		'search_items'               => __( 'Search Pokemon Types', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'no_terms'                   => __( 'No Pokemon Types', 'text_domain' ),
+		'items_list'                 => __( 'Pokemon Types list', 'text_domain' ),
+		'items_list_navigation'      => __( 'Pokemon Types list navigation', 'text_domain' ),
+	);
+    $rewrite = array(
+      'slug' => 'pokemon-type', // This controls the base slug that will display before each term
+      'with_front' => true, // Don't display the category base before "/locations/"
+      'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+    );
+
+	$args = array(
+		'labels'                     => $labels,
+        'rewrite'                    => $rewrite,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'pokemon-type', 'pokemon', $args );
+
 }
 
 if(!wp_next_scheduled( 'update_pokemon_list')){
@@ -92,6 +131,8 @@ function get_pokemon_from_api(){
                 continue;
             }
             if($inserted_pokemon && $pokemon_data) {
+
+
 
                 // name
                 update_field('field_609a95f8c2e31', $pokemon_data->name ,$inserted_pokemon);
@@ -136,6 +177,8 @@ function get_pokemon_from_api(){
                 }
                 // Type
                 update_field('field_609a969dc2e34', implode(",", $type_array) ,$inserted_pokemon);
+                // Type Taxonomy
+                wp_set_object_terms( $inserted_pokemon, $type_array, 'pokemon-type');
             }
         }
         sleep(1);
@@ -157,3 +200,13 @@ function get_pokemon_from_api(){
 function get_pokemon_data($pokemon_url){
     return json_decode(wp_remote_retrieve_body(wp_remote_get($pokemon_url)));
 }
+
+function pokemon_taxonomy_filter($query) {
+    if ( ! is_admin() && $query->is_archive() && $query->is_main_query() ) {
+            $query->set('orderby','meta_value_num');
+            $query->set('posts_per_page', 50);
+            $query->set('meta_key','pokedex_id',);
+            $query->set('order','ASC');
+    }
+}
+add_action( 'pre_get_posts', 'pokemon_taxonomy_filter' );

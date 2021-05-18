@@ -18,8 +18,4 @@ All the pages are paginated as per the pokemon data.
 - Ajax Live Search
 - Pagination
 
-Visit the script link from the admin dashboard in order to launch the script and populate the database with pokemon data.
-
-`"{your_website_address}/wp-admin/admin-ajax.php?action=get_pokemon_from_api"`
-
 ### Demo Website -> [Pokepress](https://pokepress.chethanbhat.com)

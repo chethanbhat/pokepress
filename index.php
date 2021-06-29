@@ -36,7 +36,7 @@ $the_query = new WP_Query( array(
                     <?php
                         $types = get_the_terms( get_the_ID(), 'pokemon-type' );
                         foreach ($types as $type) {
-                            echo '<a class="page_link" href="' . esc_url(site_url('/')) . 'pokemon-types/'  . $type->slug  . '"><h5 class="pokedex_type ' . $type->name . '">' . $type->name . '</h5></a>';
+                            echo '<a class="page_link" href="' . esc_url(site_url('/')) . 'pokemon-type/'  . $type->slug  . '"><h5 class="pokedex_type ' . $type->name . '">' . $type->name . '</h5></a>';
                         }
                     ?>
                 </div>
